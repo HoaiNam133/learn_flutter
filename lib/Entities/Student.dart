@@ -1,4 +1,4 @@
-//Buoi 2 hoc tren lop
+//Buoi 2 lop
 class Person{
   final String pid;
   final String pname;

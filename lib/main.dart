@@ -1,88 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/Entities/Product.dart';
-import 'package:learn_flutter/Resposistory/ProductDAO.dart';
-import 'package:learn_flutter/Views/Pages/HomePage.dart';
+import 'package:learn_flutter/screen/core_widgets_demo.dart';
+import 'package:learn_flutter/screen/debug_demo.dart';
+import 'package:learn_flutter/screen/input_controls_demo.dart';
+import 'package:learn_flutter/screen/layout_demo.dart';
+import 'package:learn_flutter/screen/scaffold_theme_demo.dart';
+
 void main() {
-  /*
-  // truyền list Product vào constructor
-  Productdao dao =
-  Productdao(Product.products);
-  // HIỂN THỊ BAN ĐẦU
-  print("DANH SÁCH BAN ĐẦU");
-  dao.showProducts();
-  // THÊM
-  print("THÊM PRODUCT");
-  dao.addProduct(Product(
-    id: "04",
-    name: "Keyboard",
-    image: "keyboard.png",
-    price: 120)
-  );
-  dao.showProducts();
-  // SỬA
-  var p = Product(
-    id: "01",
-    name: "Gaming Laptop",
-    price: 2000,
-  );
-  dao.updateProduct(p);
-  // XÓA
-  print("XÓA PRODUCT");
-  dao.deleteProduct("02");
-  dao.showProducts();
-  // TÌM KIẾM
-  print("TÌM KIẾM");
-  List<Product> result =
- dao.searchByName("Laptop");
-  for (var x in result) {
-    print(
-      "ID: ${x.id} - "
-          "Name: ${x.name} - "
-          "Price: ${x.price}",
-    );
-  }
-  // LỌC GIÁ
-  print("PRICE > 100");
-  List<Product> expensiveProducts =
-  dao.searchByPrice(100);
-  for (var x in expensiveProducts) {
-    print(
-      "ID: ${x.id} - "
-          "Name: ${x.name} - "
-          "Price: ${x.price}",
-    );
-  }
-  // SẮP XẾP PRICE
-  print("SORT BY PRICE");
-  dao.sortByPrice();
-  dao.showProducts();
-  // SẮP XẾP TÊN
-  print("SORT BY NAME");
-  dao.sortByName();
-  dao.showProducts();
-  // TĂNG GIÁ 10%
-  print("INCREASE PRICE");
-  dao.increasePrice();
-  dao.showProducts();
+  runApp(const MyApp());// Khởi động ứng dụng Flutter
 }
-*/
-//Buoi 3
-  runApp(const MyApp() );//khai bao const duoi moi sd dc const
-}
-//StatelessWidget:Scaffold (First Screen)
-class MyApp extends StatelessWidget{
+
+class MyApp extends StatelessWidget {// Widget gốc của toàn bộ ứng dụng
   const MyApp({super.key});
-  onPressed(){}
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,//k hien thi debug ben phai
-        home: Homepage());
+    return MaterialApp( // MaterialApp là widget gốc
+      debugShowCheckedModeBanner: false, // Ẩn dòng chữ DEBUG ở góc phải trên
+      title: 'Lab 4',
+      theme: ThemeData(// Theme mặc định
+        primarySwatch: Colors.blue,
+      ),
+      home: const HomeScreen(), // Màn hình đầu tiên được mở
+    );
   }
 }
+// Màn hình chính
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Lab 4 – Flutter UI Fundamentals"),
+      ),
+      body: ListView(// để hiển thị một danh sách có thể cuộn (scroll).
+        children: [
+          buildItem(context, "Exercise 1 – Core Widgets Demo",
+            const CoreWidgetsDemo(),// Màn hình cần mở
+          ),
 
+          buildItem(context, "Exercise 2 – Input Controls Demo",
+            const InputControlsDemo(),
+          ),
 
+          buildItem(context, "Exercise 3 – Layout Demo",
+            const LayoutDemo(),
+          ),
 
+          buildItem(context, "Exercise 4 – App Structure & Theme",
+            const ScaffoldThemeDemo(),
+          ),
 
+          buildItem(context, "Exercise 5 – Common UI Fixes",
+            const DebugDemo(),
+          ),
+        ],
+      ),
+    );
+  }
 
+  // Tạo menu item
+  Widget buildItem(BuildContext context,// Context hiện tại
+      String title, // Tiêu đề hiển thị
+      Widget screen) {// Màn hình cần chuyển tới
+    return Card(// Card tạo hiệu ứng thẻ
+      margin: const EdgeInsets.all(10), // Khoảng cách ngoài Card
+      child: ListTile(//tạo một dòng trong danh sách.
+        title: Text(title),
+        trailing: const Icon(Icons.arrow_forward), // Icon mũi tên bên phải
+        onTap: () {// Khi người dùng nhấn vào item
+          Navigator.push( // Chuyển sang màn hình mới
+            context,
+            MaterialPageRoute( // Route mới
+              builder: (context) => screen,// Widget màn hình đích
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

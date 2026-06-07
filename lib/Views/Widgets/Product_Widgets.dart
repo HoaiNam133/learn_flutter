@@ -3,20 +3,36 @@ import 'package:learn_flutter/Entities/Product.dart';
 import 'package:learn_flutter/Resposistory/ProductDAO.dart';
 //List view de hien thi 1 lis sp
 class ProductListWidgets extends StatelessWidget {
-  const ProductListWidgets({super.key});
+  ProductListWidgets({super.key});
+  var products=Product.products;
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        for(int i=1;i<=5;i++)
-          ProductWidget()
+        for(int i=0;i < products.length//là số phần tử có trong List:ví dụ
+        /*| i | i < 3 | Kết quả |
+          | 0 | true  | Chạy    |
+          | 1 | true  | Chạy    |
+          | 2 | true  | Chạy    |
+          | 3 | false | Dừng    |*/
+        ;i++)
+          ProductWidgets(product: products[i],)
       ],
     );
   }
 }
-//chi tiet tung san pham
-class ProductWidget extends StatelessWidget {
-  const ProductWidget({super.key});
+class ProductWidgets extends StatefulWidget {
+  Product product;
+  ProductWidgets({super.key, required this.product});
+
+  @override
+  State<ProductWidgets> createState() => _ProductWidgetsState(product: product);
+}
+
+class _ProductWidgetsState extends State<ProductWidgets> {
+  Product product;
+  _ProductWidgetsState({required this.product});
+  int _count =0;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,7 +55,8 @@ class ProductWidget extends StatelessWidget {
                     Container(
                         width: double.infinity,
                         height: 200,
-                        child: Image.asset('assets/images/anhtest.jpg',fit: BoxFit.fill)),//fit: BoxFit.fill lam chan full padding
+                        child: Image.asset(product.image!,
+                        fit: BoxFit.fill)),//fit: BoxFit.fill lam chan full padding
                     Align(
                         alignment: AlignmentGeometry.bottomRight,
                         child: Padding(
@@ -62,17 +79,18 @@ class ProductWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,//Product name can sat le trai
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,//Product name can giua,gian khoang cach
                       children: [
-                        Text("Product name:Anh mau"),
-                        Text("Price:500\$"),
+                        Text("Product Name:${product.name}"),
+                        Text("Price:${product.price}\$"),
                       ],
                     ),
                   ),
                   Expanded(
                       flex: 1,
-                      child: Icon(Icons.star,color: Colors.yellow,fontWeight: FontWeight.bold,)),
+                      child: IconButton(onPressed: (){setState((){_count++;});},
+                          icon: Icon(Icons.plus_one,color: Colors.yellow,fontWeight: FontWeight.bold,)),),
                   Expanded(
                       flex: 1,
-                      child: Text("5.0")),
+                      child: Text(_count.toString())),
                 ],
               ),
             ),

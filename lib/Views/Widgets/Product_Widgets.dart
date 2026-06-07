@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/Entities/Product.dart';
+import 'package:learn_flutter/Resposistory/ProductDAO.dart';
 //List view de hien thi 1 lis sp
 class ProductListWidgets extends StatelessWidget {
   const ProductListWidgets({super.key});

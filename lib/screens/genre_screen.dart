@@ -65,6 +65,7 @@ class _GenreScreenState extends State<GenreScreen> {// State chứa dữ liệu 
           const EdgeInsets.all(16),
           child: Column(
             children: [
+              /*Cách 1:Nhưng cái SortDropdownWidget sẽ ở giữa
               SearchBarWidget( // Thanh tìm kiếm
                 onChanged: (value) { // Được gọi khi người dùng nhập
                   setState(() { // Cập nhật giao diện
@@ -95,7 +96,47 @@ class _GenreScreenState extends State<GenreScreen> {// State chứa dữ liệu 
                     selectedSort = value!;// Cập nhật kiểu sắp xếp
                   });
                 },
+              ),*/
+              //Cách 2:Cái SortDropdownWidget sẽ ở phải search
+              Row(
+                children: [
+                  Expanded(
+                    flex: 6,
+                    child: SearchBarWidget(
+                      onChanged: (value) {// Được gọi khi người dùng nhập
+                        setState(() { // Cập nhật giao diện
+                          searchQuery = value;// Lưu từ khóa tìm kiếm
+                        });
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: SortDropdownWidget(// Dropdown chọn kiểu sắp xếp
+                      selectedSort: selectedSort,// Giá trị đang chọn
+                      onChanged: (value) {// Khi thay đổi lựa chọn
+                        setState(() {
+                          selectedSort = value!;// Cập nhật kiểu sắp xếp
+                        });
+                      },
+                    ),
+                  ),
+                ],
               ),
+              const SizedBox(height: 16),
+              GenreChipsWidget(// Danh sách chip thể loại
+                genres: genres,// Tất cả thể loại
+                selectedGenres: selectedGenres,// Các thể loại đang được chọn
+                onTap: (genre) {// Khi người dùng bấm chip
+                  setState(() {
+                    if (selectedGenres.contains(genre)) {// Nếu đã chọn
+                      selectedGenres.remove(genre);// Bỏ chọn
+                    } else {
+                      selectedGenres.add(genre);// Chọn thêm
+                    }
+                  });
+                },
+              ),//
               const SizedBox(height: 16),
               Expanded(
                 child:

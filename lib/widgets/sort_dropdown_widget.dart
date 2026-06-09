@@ -8,6 +8,8 @@ class SortDropdownWidget extends StatelessWidget {// Dùng để chọn cách s�
   Widget build(BuildContext context) {
     return DropdownButton<String>(  // Widget menu xổ xuống
       value: selectedSort, // Giá trị hiện đang được chọn
+      //isDense: true,//Làm cho DropdownButton gọn hơn, giảm chiều cao mặc định.
+      underline: const SizedBox(),//Mặc định DropdownButton có một đường gạch dưới=>Dùng underline: const SizedBox() ẩn đg gạch dưới
       items: const [ // Danh sách các lựa chọn trong menu
         DropdownMenuItem(
           value: "A-Z",

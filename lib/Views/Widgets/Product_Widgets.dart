@@ -36,7 +36,7 @@ class _ProductWidgetsState extends State<ProductWidgets> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),//tat ca cac canh thut vao 10px
+      padding: EdgeInsets.all(10),//tat ca cac canh thut vao 10px
       child: Container(
         width: double.infinity,
         height: 500,
@@ -60,7 +60,7 @@ class _ProductWidgetsState extends State<ProductWidgets> {
                     Align(
                         alignment: AlignmentGeometry.bottomRight,
                         child: Padding(
-                          padding: const EdgeInsets.all(20),
+                          padding: EdgeInsets.all(20),
                           child: FloatingActionButton.extended(onPressed: (){}, label:Text("Add to cart"),icon: Icon(Icons.shopping_cart),),
                         )),
                     //khi dung FloatingActionButton.extended... thi phai sap xep lai anh tai la cac widgets de len anh nen anh se bi co lai nen phai dat images vao 1 cai container=dung kich thuoc cua anh sp
@@ -112,7 +112,7 @@ class _ProductWidgetsState extends State<ProductWidgets> {
               child: Card(
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.all(10),
+                    padding: EdgeInsets.all(10),
                     child: Text(
                       "Ngoại hình của nam giới thường được đánh giá qua một số tiêu chuẩn phổ biến:Đường nét khuôn mặt: Mũi cao, xương quai hàm góc cạnh (cằm vuông), trán rộng và ánh mắt có thần.Vóc dáng cân đối: Bờ vai rộng, thân hình săn chắc (chữ V) và có phong cách ăn mặc gọn gàng, phù hợp.Thần thái và sự tự tin: Đây thường là yếu tố quyết định giúp một người đàn ông trở nên cuốn hút hơn trong mắt người đối diện.Những bí quyết đơn giản để trông cuốn hút hơnNếu bạn đang tìm cách cải thiện vẻ ngoài của mình, dưới đây là những bước thay đổi nhỏ nhưng hiệu quả:Chăm sóc da cơ bản: Giữ da mặt sạch sẽ, dùng kem chống nắng và dưỡng ẩm để làn da khỏe mạnh, mịn màng.Chọn kiểu tóc phù hợp: Một mái tóc được cắt tỉa gọn gàng, hợp với dáng khuôn mặt sẽ thay đổi 70% diện mạo của bạn.Định hình phong cách thời trang: Chọn trang phục vừa vặn với cơ thể, màu sắc hài hòa và luôn đảm bảo quần áo phẳng phiu, sạch sẽ.Vệ sinh cá nhân: Chú ý mùi hương cơ thể (sử dụng xịt khử mùi hoặc nước hoa nhẹ nhàng) và giữ răng miệng luôn sạch sẽ.",
                       textAlign: TextAlign.justify,),

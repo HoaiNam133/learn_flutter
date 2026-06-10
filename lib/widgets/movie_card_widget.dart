@@ -9,7 +9,7 @@ class MovieCardWidget extends StatelessWidget {
     return Card(// Thẻ Card tạo hiệu ứng nổi và bo góc
       child: Padding(
         padding:// Khoảng cách bên trong Card
-        const EdgeInsets.all(12),
+        EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start, // Căn các phần tử sang bên trái
           children: [
@@ -20,10 +20,10 @@ class MovieCardWidget extends StatelessWidget {
                 fit: BoxFit.cover,// Ảnh phủ kín vùng chứa
               ),
             ),
-            const SizedBox(height: 10),// Tạo khoảng trống 10px
+            SizedBox(height: 10),// Tạo khoảng trống 10px
             Text(
               movie.title,
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.bold,// Chữ đậm
               ),
             ),
@@ -32,8 +32,8 @@ class MovieCardWidget extends StatelessWidget {
             ),
             Row(// Điểm đánh giá
               children: [
-              const Icon(Icons.star, size: 18, color: Colors.yellow,),
-              const SizedBox(width: 4),
+                Icon(Icons.star, size: 18, color: Colors.yellow,),
+                SizedBox(width: 4),
               Text(movie.rating.toString()),
           ],
             ),

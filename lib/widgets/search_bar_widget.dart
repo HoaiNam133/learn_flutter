@@ -9,7 +9,7 @@ class SearchBarWidget extends StatelessWidget {
     return TextField(// Ô nhập liệu
       decoration: InputDecoration(// Tùy chỉnh giao diện của TextField
         hintText: "Search movie...",// Chữ gợi ý khi chưa nhập gì
-        prefixIcon: const Icon(Icons.search),
+        prefixIcon: Icon(Icons.search),
         border: OutlineInputBorder(  // Viền bao quanh TextField
           borderRadius:
           BorderRadius.circular(12),

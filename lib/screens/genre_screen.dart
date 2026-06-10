@@ -57,12 +57,12 @@ class _GenreScreenState extends State<GenreScreen> {// State chứa dữ liệu 
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Find a Movie"),
+        title: Text("Find a Movie"),
       ),
       body: SafeArea(
         child: Padding(// Tránh bị che bởi tai thỏ hoặc thanh trạng thái
           padding: // Khoảng cách xung quanh nội dung
-          const EdgeInsets.all(16),
+          EdgeInsets.all(16),
           child: Column(
             children: [
               /*Cách 1:Nhưng cái SortDropdownWidget sẽ ở giữa
@@ -72,7 +72,7 @@ class _GenreScreenState extends State<GenreScreen> {// State chứa dữ liệu 
                     searchQuery = value;}); // Lưu từ khóa tìm kiếm
                 },
               ),
-              const SizedBox(height: 16), // Khoảng cách
+              SizedBox(height: 16), // Khoảng cách
               GenreChipsWidget(// Danh sách chip thể loại
                 genres: genres,  // Tất cả thể loại
                 selectedGenres:   // Các thể loại đang được chọn
@@ -87,7 +87,7 @@ class _GenreScreenState extends State<GenreScreen> {// State chứa dữ liệu 
                   });
                 },
               ),
-              const SizedBox(height: 16),  // Khoảng cách
+              SizedBox(height: 16),  // Khoảng cách
               SortDropdownWidget( // Dropdown chọn kiểu sắp xếp
                 selectedSort:// Giá trị đang chọn
                 selectedSort,
@@ -110,7 +110,7 @@ class _GenreScreenState extends State<GenreScreen> {// State chứa dữ liệu 
                       },
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  SizedBox(width: 12),
                   Expanded(
                     child: SortDropdownWidget(// Dropdown chọn kiểu sắp xếp
                       selectedSort: selectedSort,// Giá trị đang chọn
@@ -123,7 +123,7 @@ class _GenreScreenState extends State<GenreScreen> {// State chứa dữ liệu 
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               GenreChipsWidget(// Danh sách chip thể loại
                 genres: genres,// Tất cả thể loại
                 selectedGenres: selectedGenres,// Các thể loại đang được chọn
@@ -137,7 +137,7 @@ class _GenreScreenState extends State<GenreScreen> {// State chứa dữ liệu 
                   });
                 },
               ),//
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Expanded(
                 child:
                 LayoutBuilder(

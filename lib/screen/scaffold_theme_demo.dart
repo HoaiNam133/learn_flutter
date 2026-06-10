@@ -22,11 +22,11 @@ class _ScaffoldThemeDemoState extends State<ScaffoldThemeDemo> {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.arrow_back)),
-          title: const Text("Exercise 4 – App Structure",),
+          title: Text("Exercise 4 – App Structure",),
           actions: [
             Row(
               children: [
-                const Text("Dark"),
+                Text("Dark"),
                 Switch( // Công tắc bật/tắt Dark Mode
                   value: isDarkMode,
                   onChanged: (value) {// Chạy khi người dùng bật/tắt
@@ -40,18 +40,18 @@ class _ScaffoldThemeDemoState extends State<ScaffoldThemeDemo> {
           ],
         ),
 
-        body: const Center(
+        body: Center(
           child: Text("This is a simple screen with theme toggle.", style: TextStyle(fontSize: 18),),
         ),
         floatingActionButton: FloatingActionButton(// Nút tròn nổi ở góc dưới bên phải
           onPressed: () {
             ScaffoldMessenger.of(context)
                 .showSnackBar(
-              const SnackBar(content: Text("Floating Action Button Pressed",),
+              SnackBar(content: Text("Floating Action Button Pressed",),
               ),
             );
           },
-          child: const Icon(Icons.add),// Icon dấu cộng
+          child: Icon(Icons.add),// Icon dấu cộng
         ),
       ),
     );

@@ -35,15 +35,15 @@ class _InputControlsDemoState extends State<InputControlsDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Exercise 2 – Input Controls"),
+        title: Text("Exercise 2 – Input Controls"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Rating
-            const Text("Rating (Slider)", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,),),
+            Text("Rating (Slider)", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,),),
             Slider(//để cho người dùng kéo thanh trượt để chọn một giá trị trong một khoảng nhất định.
               value: rating,// Giá trị hiện tại của Slide// rating là biến kiểu double
               min: 0,// Giá trị nhỏ nhất có thể chọn
@@ -59,12 +59,12 @@ class _InputControlsDemoState extends State<InputControlsDemo> {
 
             Text(
               "Current value: ${rating.toInt()}",// ${rating.toInt()} chuyển rating từ double sang int// Ví dụ: 75.8 -> 75
-              style: const TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16),
             ),
-            const SizedBox(height: 25),
+            SizedBox(height: 25),
             // Switch
-            const Text("Active (Switch)", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,),),
-            SwitchListTile(title: const Text("Is movie active?"),
+            Text("Active (Switch)", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,),),
+            SwitchListTile(title: Text("Is movie active?"),
               value: isActive,  // Trạng thái hiện tại của Switch// true = bật// false = tắt
               onChanged: (value) { // Chạy khi người dùng bật/tắt Switch
                 setState(() {
@@ -72,11 +72,11 @@ class _InputControlsDemoState extends State<InputControlsDemo> {
                 });
               },
             ),
-            const SizedBox(height: 15),
+            SizedBox(height: 15),
             // Radio
-            const Text("Genre (RadioListTile)", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,),),
+            Text("Genre (RadioListTile)", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,),),
             RadioListTile<String>(// Radio lựa chọn Action
-              title: const Text("Action"),
+              title: Text("Action"),
               value: "Action",  // Giá trị của radio này
               groupValue: selectedGenre,  // Giá trị đang được chọn
               onChanged: (value) {// Chạy khi người dùng chọn
@@ -86,7 +86,7 @@ class _InputControlsDemoState extends State<InputControlsDemo> {
               },
             ),
             RadioListTile<String>(
-              title: const Text("Comedy"),
+              title: Text("Comedy"),
               value: "Comedy",
               groupValue: selectedGenre,
               onChanged: (value) {
@@ -96,15 +96,15 @@ class _InputControlsDemoState extends State<InputControlsDemo> {
               },
             ),
             Text("Selected genre: ${selectedGenre ?? 'None'}",  // Nếu selectedGenre khác null -> hiển thị giá trị// Nếu null -> hiển thị "None"
-              style: const TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             SizedBox(width: double.infinity,
               child: ElevatedButton(
                 onPressed: openDatePicker,// Khi nhấn nút sẽ gọi hàm mở Date Picker
-                child: const Text("Open Date Picker"),),
+                child: Text("Open Date Picker"),),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             if (selectedDate != null)// Chỉ hiển thị widget bên dưới nếu selectedDate khác null
               Text("Selected date: "
                     "${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}",), // Dấu ! khẳng định selectedDate không null

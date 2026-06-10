@@ -32,28 +32,28 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Lab 4 – Flutter UI Fundamentals"),
+        title: Text("Lab 4 – Flutter UI Fundamentals"),
       ),
       body: ListView(// để hiển thị một danh sách có thể cuộn (scroll).
         children: [
           buildItem(context, "Exercise 1 – Core Widgets Demo",
-            const CoreWidgetsDemo(),// Màn hình cần mở
+            CoreWidgetsDemo(),// Màn hình cần mở
           ),
 
           buildItem(context, "Exercise 2 – Input Controls Demo",
-            const InputControlsDemo(),
+            InputControlsDemo(),
           ),
 
           buildItem(context, "Exercise 3 – Layout Demo",
-            const LayoutDemo(),
+            LayoutDemo(),
           ),
 
           buildItem(context, "Exercise 4 – App Structure & Theme",
-            const ScaffoldThemeDemo(),
+            ScaffoldThemeDemo(),
           ),
 
           buildItem(context, "Exercise 5 – Common UI Fixes",
-            const DebugDemo(),
+            DebugDemo(),
           ),
         ],
       ),

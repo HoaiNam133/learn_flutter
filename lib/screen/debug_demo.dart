@@ -14,21 +14,21 @@ class DebugDemo extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Exercise 5 – Common UI Errors"),),
+        title: Text("Exercise 5 – Common UI Errors"),),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Correct ListView inside Column using Expanded", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),
+            Text("Correct ListView inside Column using Expanded", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Expanded(   // Expanded giúp ListView chiếm phần không gian còn lại trong Column
               child: ListView.builder(
                 itemCount: movies.length,// Số phần tử trong danh sách
                 itemBuilder: (context, index) {// Hàm tạo từng item
                   return ListTile(
-                    leading: const Icon(Icons.movie),// Icon bên trái
+                    leading: Icon(Icons.movie),// Icon bên trái
                     title: Text(movies[index]),
                   );
                 },

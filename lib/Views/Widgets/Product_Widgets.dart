@@ -1,21 +1,25 @@
 //buổi 4
 import 'package:flutter/material.dart';
-//List view de hien thi 1 lis sp
+import 'package:learn_flutter/Entities/Product.dart';
+import 'package:learn_flutter/Resposistory/ProductDAO.dart';
 class ProductListWidgets extends StatelessWidget {
-  const ProductListWidgets({super.key});
+  ProductListWidgets({super.key});
+  var products=Product.products;
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
         for(int i=1;i<=5;i++)
-          ProductWidget()
+          ProductWidget(product:products[i]),
       ],
     );
   }
 }
+
 //chi tiet tung san pham
 class ProductWidget extends StatelessWidget {
-  const ProductWidget({super.key});
+  Product product;
+  ProductWidget({super.key,required this.product});
   @override
   Widget build(BuildContext context) {
     return Padding(

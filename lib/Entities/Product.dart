@@ -1,8 +1,9 @@
 class Product {
-  final String id;
-  final String name;
+  final String? id;
+  final String? name;
   final String? image;
-  double price;
+  final double? price;
+
 
   // CONSTRUCTOR
   Product(

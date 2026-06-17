@@ -5,8 +5,9 @@ import 'package:learn_flutter/Resposistory/ProductDAO.dart';
 import 'package:learn_flutter/Views/Pages/HomePage.dart';
 import 'package:learn_flutter/Views/Pages/AboutPage.dart';
 import 'package:learn_flutter/Views/Pages/ProductDetailPage.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 void main() {
-  runApp(const MyApp() );//khai bao const duoi moi sd dc const
+  runApp(const ProviderScope(child:MyApp()));//khai bao const duoi moi sd dc const
 }
 class MyApp extends StatelessWidget{
   const MyApp({super.key});

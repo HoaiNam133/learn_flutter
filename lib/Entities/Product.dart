@@ -38,9 +38,9 @@ class Product {
 
   // DANH SÁCH TĨNH
   static List<Product> products = [
-    Product(id: "01", name: "Laptop", price: 1500),
-    Product(id: "02", name: "Phone", price: 800),
-    Product(id: "03", name: "Mouse", price: 300),
+    Product(id: "01", name: "Laptop", price: 1500,image: 'assets/images/anhtest.jpg'),
+    Product(id: "02", name: "Phone", price: 800,image: 'assets/images/anhtest.jpg'),
+    Product(id: "03", name: "Mouse", price: 300,image: 'assets/images/anhtest.jpg'),
   ];
 }
 
